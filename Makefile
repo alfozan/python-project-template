@@ -28,3 +28,6 @@ setup:
 	uv cache prune
 	@echo ">>> Python version..."
 	uv run python --version
+
+run:
+	uv run python main.py
