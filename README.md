@@ -2,20 +2,39 @@
 
 This is a template for Python projects.
 
-## Makefile Targets
+This project uses [uv](https://docs.astral.sh/uv/) - An extremely fast Python package installer and resolver.
 
-The following targets are available in the `Makefile`:
+Install from [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
 
-*   **`setup`**: Cleans up the environment, installs Python, creates a virtual environment, activates it, and installs dependencies. This is the default target.
-*   **`run`**: Runs the `main.py` script using the virtual environment.
+This project uses [Ruff](https://docs.astral.sh/ruff/) for linting and formatting.
 
-## Usage
+**Python Version:** 3.13 (configured in `.python-version`)
 
-1.  **Set up the environment:**
-    ```bash
-    make setup
-    ```
-2.  **Run main.py:**
-    ```bash
-    make run
-    ``` 
+## Makefile Targets and Usage
+
+1. **setup:**
+   Cleans up the environment, installs Python, creates a virtual environment, activates it, and installs dependencies.
+
+   ```bash
+   make setup
+   ```
+2. **run:**
+   This will run the `main.py` script using the virtual environment.
+   ```bash
+   make run
+   ```
+3. **Lint the project:**
+   Lints Python files using Ruff (with auto-fix) and Pylint (with `.pylintrc` configuration)
+
+   ```bash
+   make lint
+   ```
+4. **Tidy project files (Python, shell, JSON):**
+   ```bash
+   make tidy
+   ```
+5. **Clean the project:**
+   Cleans up the project by removing the virtual environment, lock files, and Python cache/compiled files.
+   ```bash
+   make clean
+   ``` 

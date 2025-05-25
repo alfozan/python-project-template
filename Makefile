@@ -4,11 +4,7 @@
 .DEFAULT_GOAL := setup
 
 # setup python virtual environment and dependencies
-setup:
-	@echo ">>> Cleaning up..."
-	rm -rf .venv > /dev/null 2>&1
-	rm -rf uv.lock
-
+setup: clean
 	@echo ">>> Installing Python..."
 	uv python install
 
@@ -29,5 +25,30 @@ setup:
 	@echo ">>> Python version..."
 	uv run python --version
 
+clean:
+	@echo ">>> Cleaning up project..."
+	rm -rf .venv > /dev/null 2>&1
+	rm -rf uv.lock
+
+	find . -type d -name "__pycache__" -exec rm -rf {} +
+	find . -type f -name "*.py[cod]" -delete
+	rm -rf .ruff_cache .pylint.d
+
 run:
 	uv run python main.py
+
+lint:
+	@echo ">>> Linting with Ruff..."
+	@uv run ruff check . --fix --no-cache
+	@echo ">>> Linting with Pylint..."
+	@uv run pylint --rcfile=.pylintrc .
+
+tidy:
+	# Tidy Python, shell, and JSON files
+	@echo ">>> Tidying Python files..."
+	@uv run ruff check --fix --extend-ignore ALL --select I001 . --no-cache
+	@uv run ruff format . --no-cache
+	@echo ">>> Tidying shell scripts..."
+	@find . -name '*.sh' -print0 | xargs -0 -r uv run beautysh --indent-size 2 --force-function-style fnpar
+	@echo ">>> Tidying JSON files..."
+	@find . -name '*.json' -print0 | xargs -0 -I {} uv run python -m json.tool --indent 4 {} {}

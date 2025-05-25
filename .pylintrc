@@ -1,13 +1,12 @@
 [MAIN]
 
-# Add files or directories matching the regex patterns to the ignore-list. The
-# regex matches against paths and can be in Posix or Windows format.
+# Add files or directories matching the regex patterns to the ignore-list.
 ignore-paths = .git,__pycache__,mypy_cache,.pytest_cache,.vscode,.ruff_cache,.idea,.venv
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the number of processors available to use.
 jobs = 0
 
-load-plugins = pylint.extensions.bad_builtin,pylint.extensions.mccabe,pylint.extensions.check_elif,
+load-plugins = pylint.extensions.bad_builtin,pylint.extensions.check_elif,
                pylint.extensions.redefined_variable_type,pylint.extensions.docparams,pylint.extensions.docstyle,
                pylint.extensions.overlapping_exceptions,pylint.extensions.no_self_use
 
@@ -15,16 +14,25 @@ extension-pkg-whitelist = pydantic
 
 [MESSAGES CONTROL]
 enable = all
-disable = suppressed-message,locally-disabled,fixme,too-many-locals,too-many-branches,
-          duplicate-code,logging-fstring-interpolation,line-too-long,missing-module-docstring,
-          missing-function-docstring,missing-class-docstring,invalid-name,global-variable-not-assigned,
-          import-outside-toplevel,no-member,redefined-builtin,bare-except,too-complex,too-many-statements,
-          no-else-return,unused-argument,too-many-ancestors,broad-except,docstring-first-line-empty,global-statement,
-          redefined-outer-name,too-many-arguments,too-few-public-methods,no-self-argument,
-          wrong-import-position,useless-suppression,too-many-instance-attributes,no-self-use,too-many-lines,
-          broad-exception-raised,cyclic-import,use-implicit-booleaness-not-comparison-to-zero,
-          use-implicit-booleaness-not-comparison-to-string,too-many-boolean-expressions,wrong-import-order,
-          too-many-positional-arguments,too-many-return-statements,unsubscriptable-object
+disable =
+          suppressed-message,
+          locally-disabled,
+          duplicate-code,
+          line-too-long,
+          missing-module-docstring,
+          missing-function-docstring,
+          missing-class-docstring,
+          import-outside-toplevel,
+          redefined-builtin,
+          no-else-return,
+          broad-except,
+          docstring-first-line-empty,
+          redefined-outer-name,
+          too-many-arguments,
+          too-few-public-methods,
+          too-many-instance-attributes,
+          too-many-lines,
+          too-many-boolean-expressions
 
 [FORMAT]
 max-line-length = 120
