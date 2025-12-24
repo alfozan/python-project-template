@@ -1,4 +1,22 @@
-*.log
-.venv
-__pycache__/
+# IDEs
+.idea/
+.vscode/
+
+# OS
 .DS_Store
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
+
+# Tooling caches
+.ruff_cache/
+.pylint.d/
+.pytest_cache/
+
+# Logs
+*.log
