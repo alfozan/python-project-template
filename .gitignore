@@ -15,7 +15,6 @@ __pycache__/
 
 # Tooling caches
 .ruff_cache/
-.pylint.d/
 .pytest_cache/
 
 # Logs

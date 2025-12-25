@@ -6,9 +6,9 @@ This project uses [uv](https://docs.astral.sh/uv/) - An extremely fast Python pa
 
 Install from [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
 
-This project uses [Ruff](https://docs.astral.sh/ruff/) for linting and formatting.
+This project uses [Ruff](https://docs.astral.sh/ruff/) for linting and formatting, and [ty](https://docs.astral.sh/ty/) for type checking.
 
-**Python Version:** 3.13 (configured in `.python-version`)
+**Python Version:** 3.14 (configured in `pyproject.toml`)
 
 ## Makefile Targets and Usage
 
@@ -24,7 +24,7 @@ This project uses [Ruff](https://docs.astral.sh/ruff/) for linting and formattin
    make run
    ```
 3. **Lint the project:**
-   Lints Python files using Ruff (with auto-fix) and Pylint (with `.pylintrc` configuration)
+   Lints Python files using Ruff (with auto-fix) and type checks with ty.
 
    ```bash
    make lint
