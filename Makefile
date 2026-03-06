@@ -3,6 +3,8 @@
 # Default target
 .DEFAULT_GOAL := setup
 
+.PHONY: setup clean run lint tidy
+
 # setup python virtual environment and dependencies
 setup: clean
 	@echo ">>> Installing Python..."
